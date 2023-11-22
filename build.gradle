@@ -22,11 +22,20 @@ repositories {
 }
 
 dependencies {
+	// 타임리프 설정 추가
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// Spring web 설정 추가
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// Lombok 설정 추가
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// Spring boot Devtools 설정 추가
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// h2 데이터베이스 설정
+	runtimeOnly 'com.h2database:h2'
+	// Spring data jpa 설정
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('bootBuildImage') {
