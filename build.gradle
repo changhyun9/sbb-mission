@@ -24,6 +24,7 @@ repositories {
 dependencies {
 	// 타임리프 설정 추가
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	// Spring web 설정 추가
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// Lombok 설정 추가
