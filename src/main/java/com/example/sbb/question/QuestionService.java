@@ -1,6 +1,7 @@
 package com.example.sbb.question;
 
 import com.example.sbb.DataNotFoundException;
+import com.example.sbb.user.SiteUser;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +32,11 @@ public class QuestionService {
         }
     }
 
-    public void create(String subject, String content) {
+    public void create(String subject, String content, SiteUser user) {
         Question question = new Question();
         question.setSubject(subject);
         question.setContent(content);
+        question.setAuthor(user); 
         question.setCreateDate(LocalDateTime.now());
         questionRepository.save(question);
     }

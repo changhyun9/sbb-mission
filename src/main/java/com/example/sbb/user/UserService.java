@@ -1,5 +1,7 @@
 package com.example.sbb.user;
 
+import com.example.sbb.DataNotFoundException;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +20,14 @@ public class UserService {
         siteUser.setPassword(passwordEncoder.encode(password));
         userRepository.save(siteUser);
         return siteUser;
+    }
 
+    public SiteUser getUser(String username) {
+        Optional<SiteUser> user = userRepository.findByusername(username);
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            throw new DataNotFoundException("siteuser not found");
+        }
     }
 }
